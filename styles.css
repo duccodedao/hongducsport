@@ -580,7 +580,7 @@ figcaption p {
 }
 
 .column {
-  flex: 0 0 calc(50% - 20px);
+  flex: 0 0 calc(25% - 20px); /* Chia layout thành 4 cột */
   margin: 10px;
   position: relative;
   overflow: hidden;
@@ -588,6 +588,14 @@ figcaption p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
+
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 0 0 calc(25% - 20px); /* Giữ layout thành 4 cột khi màn hình nhỏ hơn */
+    min-width: calc(25% - 20px); /* Đảm bảo rằng mỗi cột có độ rộng tối thiểu là 25% */
+  }
+}
+
 
 .column:hover {
   transform: translateY(-5px);
